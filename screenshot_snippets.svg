@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="160" viewBox="0 0 640 160">
+  <style>
+    .bg{fill:#fff}
+    .panel{fill:#f8fafc;stroke:#e6eef6}
+    .btn{fill:#fff;stroke:#dbe7f5}
+    .label{font:12px/1 Arial, sans-serif;fill:#0b1220}
+    .hint{font:12px/1 Arial, sans-serif;fill:#334155}
+    .new{fill:#0f62fe;font:700 12px/1 Arial, sans-serif}
+  </style>
+  <rect width="640" height="160" fill="#fff"/>
+  <g transform="translate(12,12)">
+    <rect class="panel" x="0" y="0" width="616" height="136" rx="8"/>
+    <text x="16" y="28" class="label">DevTools → Sources → Snippets</text>
+    <rect class="btn" x="16" y="40" width="220" height="28" rx="4"/>
+    <text x="28" y="58" class="hint">Snippets list</text>
+    <rect x="260" y="40" width="140" height="28" rx="4" fill="#eaf2ff" stroke="#cfe0ff"/>
+    <text x="308" y="58" class="new">New snippet</text>
+    <text x="16" y="96" class="hint">Click <tspan font-weight="700">New snippet</tspan> to paste code, save, then right-click → Run.</text>
+  </g>
+</svg>
