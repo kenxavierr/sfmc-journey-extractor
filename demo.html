@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SFMC Snippets Demo</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#111;padding:20px}
+    .demo{max-width:880px;margin:0 auto;background:#fff;border-radius:8px;padding:18px;border:1px solid #e2e8f0}
+    h1{font-size:20px;margin:0 0 12px}
+    .steps{display:flex;gap:12px}
+    .step{flex:1;padding:12px;border-radius:6px;background:#f8fafc;border:1px solid #e6eef6}
+    .step h3{margin:0 0 8px;font-size:14px}
+    .anim{margin-top:12px;height:120px;display:flex;align-items:center;justify-content:center}
+    .screen{width:360px;height:80px;border-radius:6px;background:linear-gradient(180deg,#fff,#f7fafc);border:1px solid #dbe7f5;box-shadow:0 2px 6px rgba(16,24,40,0.06);display:flex;align-items:center;justify-content:center}
+    .cursor{width:12px;height:12px;background:#0f62fe;border-radius:2px;position:relative;left:-140px;animation:move 3s linear infinite}
+    @keyframes move{0%{left:-140px;opacity:0}20%{opacity:1}45%{left:0}70%{left:80px}100%{left:200px;opacity:0}}
+    .note{font-size:13px;color:#334155;margin-top:12px}
+    .btn{display:inline-block;margin-top:12px;padding:8px 12px;border-radius:6px;background:#0f62fe;color:#fff;text-decoration:none}
+    pre{background:#0b1220;color:#e6eef6;padding:10px;border-radius:6px;overflow:auto}
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <h1>Quick demo: Run a snippet & paste into Google Sheets</h1>
+    <div class="steps">
+      <div class="step">
+        <h3>1. Open DevTools</h3>
+        <div class="anim"><div class="screen">Open Chrome → F12</div></div>
+      </div>
+      <div class="step">
+        <h3>2. Create Snippet</h3>
+        <div class="anim"><div class="screen">Sources → Snippets → New</div></div>
+      </div>
+      <div class="step">
+        <h3>3. Run Snippet</h3>
+        <div class="anim"><div class="screen">Right-click snippet → Run</div></div>
+      </div>
+    </div>
+
+    <div class="anim" style="margin-top:18px"><div class="screen"><div class="cursor"></div></div></div>
+
+    <p class="note">When the snippet runs it copies the TSV/text to your clipboard. Open Google Sheets and paste into cell A1 (Ctrl/Cmd+V).</p>
+
+    <p><a class="btn" href="https://github.com/kenxavierr/sfmc-journey-extractor">Open repo on GitHub</a></p>
+
+    <h3>Sample clipboard output (ver1)</h3>
+    <pre>Email Delivery & Engagement	Total Sent	Delivery Rate	Unique Opens		Total Opens	Unique Clicks		Total Clicks	Unsubscribes	
+	41.15K	99.68%	10.97K	26.75% of delivered	13.75K	104	0.25% of delivered	379	34	0.08% of delivered</pre>
+  </div>
+</body>
+</html>
