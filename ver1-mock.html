@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>ver1 - Journey Analytics mock</title>
+<style>
+  body{font-family:Arial;margin:18px;background:#f7fafc;color:#111}
+  .card{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:16px;max-width:640px}
+  h2{margin:0 0 10px;font-size:16px}
+  .row{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid #eef2f7}
+  .metric-title{color:#374151}
+  .metric-value{font-weight:700}
+  pre{background:#111827;color:#e5e7eb;padding:12px;border-radius:6px;overflow:auto}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>Journey Analytics — Email Delivery & Engagement</h2>
+    <div class="row"><div class="metric-title">Total Sent</div><div class="metric-value">41.15K</div></div>
+    <div class="row"><div class="metric-title">Delivery Rate</div><div class="metric-value">99.68%</div></div>
+    <div class="row"><div class="metric-title">Unique Opens</div><div class="metric-value">10.97K</div></div>
+    <div class="row"><div class="metric-title">Unique Opens (% of delivered)</div><div class="metric-value">26.75%</div></div>
+    <div class="row"><div class="metric-title">Total Opens</div><div class="metric-value">13.75K</div></div>
+    <div class="row"><div class="metric-title">Unique Clicks</div><div class="metric-value">104</div></div>
+    <div class="row"><div class="metric-title">Unique Clicks (% of delivered)</div><div class="metric-value">0.25%</div></div>
+    <div class="row"><div class="metric-title">Total Clicks</div><div class="metric-value">379</div></div>
+    <div class="row"><div class="metric-title">Unsubscribes</div><div class="metric-value">34</div></div>
+  </div>
+
+  <h3>Sample clipboard TSV (header + values)</h3>
+  <pre>Header row (tabs shown as \t):
+Email Delivery & Engagement\tTotal Sent\tDelivery Rate\tUnique Opens\t\tTotal Opens\tUnique Clicks\t\tTotal Clicks\tUnsubscribes\t
+Value row:
+\t41.15K\t99.68%\t10.97K\t26.75% of delivered\t13.75K\t104\t0.25% of delivered\t379\t34\t0.08% of delivered</pre>
+</body>
+</html>

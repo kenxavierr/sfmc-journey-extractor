@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>ver2-sms - SMS Analytics mock</title>
+<style>
+  body{font-family:Arial;margin:18px;background:#f7fafc;color:#111}
+  .card{background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:16px;max-width:900px}
+  h2{margin:0 0 10px;font-size:16px}
+  .kpis{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0}
+  .kpi{background:#fbfdff;border:1px solid #e6f0fb;border-radius:6px;padding:8px 12px;min-width:140px}
+  .kpi .title{color:#475569}
+  .kpi .value{font-weight:700;margin-top:6px}
+  table{width:100%;border-collapse:collapse;margin-top:12px}
+  th,td{border:1px solid #e6eef6;padding:8px;text-align:left}
+  pre{background:#0b1220;color:#e6eef6;padding:12px;border-radius:6px;overflow:auto}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>SMS/MMS Deliveries</h2>
+    <div class="kpis">
+      <div class="kpi"><div class="title">Sent (Total)</div><div class="value">54</div></div>
+      <div class="kpi"><div class="title">Delivered (Total)</div><div class="value">52</div></div>
+      <div class="kpi"><div class="title">Total</div><div class="value">2</div></div>
+    </div>
+
+    <h3>Link Performance</h3>
+    <table>
+      <thead>
+        <tr><th>Original URL</th><th>Shortened URL</th><th>Unique Clicks</th><th>Total Clicks</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>https://example.com/promo</td><td>https://ex.am/1</td><td>10</td><td>15</td></tr>
+        <tr><td>https://example.com/offer</td><td>https://ex.am/2</td><td>4</td><td>6</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Sample combined TSV (KPIs then table)</h3>
+  <pre>Header row (KPIs):\nSMS/MMS Deliveries\tSent (Total)\tDelivered (Total)\tTotal
+Value row (KPIs):\n\t54\t52\t2
+
+Table header:\nOriginal URL\tShortened URL\tUnique Clicks\tTotal Clicks
+Table rows:\nhttps://example.com/promo\thttps://ex.am/1\t10\t15
+https://example.com/offer\thttps://ex.am/2\t4\t6</pre>
+</body>
+</html>
