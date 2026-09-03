@@ -1,56 +1,77 @@
 # SFMC Journey Extractor — Quick Reference
 
-This repository provides simple DevTools snippets, visual mockups, and a short interactive demo to help non-technical users extract text from Salesforce Marketing Cloud (SFMC) Journey / Email / SMS analytics UIs and paste results into Google Sheets.
+A single‑page, non‑technical README that explains how to run the four DevTools snippets (ver1 / ver2 / ver2-sms / ver3) to extract SFMC Journey / Email / SMS analytics text and paste it into Google Sheets.
 
-What’s in this repo
+## Purpose
+Run a small JavaScript snippet inside Chrome DevTools to copy analytics text to your clipboard and paste it directly into Google Sheets. No installs required — just Chrome and the page open.
 
-- `ver1-extract-journey.js` — Extract Journey Analytics (Email Delivery & Engagement card). Copies a two-row TSV (header + values) to clipboard.
-- `ver2-extract-email.js` — Extract Email Analytics (block info: title, contexts, iframe src). Copies small key/value TSV to clipboard.
-- `ver2-sms-extract-sms.js` — Extract SMS/MMS Analytics (KPIs + table). Copies combined TSV (KPIs then table) to clipboard.
-- `ver3-extract-activity-names.js` — Extract Activity Names. Copies a newline list of activity names to clipboard.
-- `ver1-mock.html`, `ver2-mock.html`, `ver2-sms-mock.html`, `ver3-mock.html` — visual mockups showing sample layouts and exact sample clipboard output.
-- `demo.html` — a short, friendly animated HTML demonstration that visually walks users through running a snippet and pasting into Google Sheets (works in a browser — use it if you can’t provide a GIF).
+## The four scripts (what they do)
+- **ver1 — Extract Journey Analytics**
+  - Targets the Email Delivery & Engagement style card (delivery, opens, clicks, unsubscribes).
+  - Copies a two‑row TSV: first row = header (metric names), second row = values. Paste into Google Sheets A1.
+  - File: `ver1-extract-journey.js`
 
-Quick links
+- **ver2 — Extract Email Analytics**
+  - Extracts the Email Analytics block metadata: block title, available contexts, and analytics iframe URL (if present).
+  - Copies a small key/value TSV (one pair per line) to clipboard.
+  - File: `ver2-extract-email.js`
 
-- Mockups:
-  - https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver1-mock.html
-  - https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver2-mock.html
-  - https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver2-sms-mock.html
-  - https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver3-mock.html
+- **ver2-sms — Extract SMS/MMS Analytics**
+  - Tailored for the SMS/MMS card layout. Copies KPI header + values and any internal table rows.
+  - Output: KPI rows (two rows), blank separator, then table header + rows (if present). Paste into Google Sheets A1.
+  - File: `ver2-sms-extract-sms.js`
 
-- Snippets:
-  - https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver1-extract-journey.js
-  - https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver2-extract-email.js
-  - https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver2-sms-extract-sms.js
-  - https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver3-extract-activity-names.js
+- **ver3 — Extract Activity Names**
+  - Collects journey activity names (elements with `.canvas-name.slds-line-clamp`) and copies a newline list (one name per line).
+  - Paste into Google Sheets A1 to get one activity per row.
+  - File: `ver3-extract-activity-names.js`
 
-- Interactive demo (open in browser):
-  - https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/demo.html
+---
 
-How to use the snippets (one-minute guide)
+## Quick steps — run a script (1 minute)
+1. Open the SFMC page that shows the analytics card or journey canvas in **Chrome** and wait until the UI is visible.
+2. Press **F12** to open Chrome DevTools.
+3. In DevTools: **Sources → Snippets → New snippet**.
+4. Name the snippet (e.g., `ver1-ExtractJourney`) and paste the contents of the corresponding `.js` file from this repo.
+5. Save (Ctrl/Cmd+S). With the analytics page visible, right‑click the snippet → **Run** (or open it and click Run ▶).
+6. A small alert confirms the data was copied to the clipboard. Open **Google Sheets**, click cell **A1**, and paste (Ctrl/Cmd+V).
 
-1. Open the SFMC page with the analytics UI in Chrome.
-2. Press `F12` to open Chrome DevTools.
-3. In DevTools go to **Sources → Snippets**.
-4. Click **New snippet**, name it (e.g., `ver1-ExtractJourney`) and paste the corresponding `.js` file contents from this repo.
-5. Save (Ctrl/Cmd+S). With the analytics page visible, right‑click the snippet → **Run**.
-6. A confirmation alert appears and the result is copied to your clipboard. Paste into Google Sheets at cell A1.
+> Tip: If you prefer not to save a snippet, open **Console** and paste the script source directly, then press Enter.
 
-Notes
+## If the content is inside an iframe
+- Option A (recommended): In DevTools **Console**, use the context selector (top-left) to pick the iframe frame, then run the snippet there.
+- Option B: Inspect the iframe, copy its `src`, open that URL in a new tab, and run the snippet in that tab.
 
-- If the analytics card lives inside an iframe, use DevTools Console context selector (top-left) to switch to the frame, or open the iframe URL in a new tab and run the snippet there.
-- If clipboard copy fails, check the DevTools Console — the script logs the TSV/text there so you can copy manually.
+## What the scripts copy (how to paste)
+- **ver1**: Two-row TSV — paste into Sheets A1; columns align automatically.
+- **ver2**: Key/value TSV — paste into Sheets or a text editor.
+- **ver2-sms**: KPI header & value rows, blank line, then table header + rows — paste into A1.
+- **ver3**: Newline-separated list — paste into column A (one item per row).
 
-Want a GIF instead?
+## Troubleshooting (simple)
+- **No analytics card found**: Wait 1–3 seconds and re-run (dashboard may still render); or the card may be inside an iframe — use the iframe note above.
+- **Clipboard copy failed**: The script logs the output to DevTools **Console** — open Console (F12 → Console), copy the logged text manually, and paste into Sheets.
+- **Everything pasted into one column**: In Google Sheets: **Data → Split text to columns → Separator: Tab**.
 
-I included `demo.html` (a tiny animated walkthrough) as an HTML alternative to a GIF. If you prefer a real GIF file I can generate one and add it to the repo — tell me and I’ll produce it.
+## Files in this repo
+- Snippets (ready to copy):
+  - `ver1-extract-journey.js`
+  - `ver2-extract-email.js`
+  - `ver2-sms-extract-sms.js`
+  - `ver3-extract-activity-names.js`
 
-Contact / Next steps
+- Visual aids / demos (optional previews):
+  - `ver1-mock.html`, `ver2-mock.html`, `ver2-sms-mock.html`, `ver3-mock.html` — simple mockups showing the layouts and sample clipboard output.
+  - `demo.html` and `demo-anim.svg` — a small interactive/animated demo of the workflow.
+  - `cheatsheet.html` — printable one‑page cheat sheet.
 
-If you want, I can:
-- Produce a downloadable ZIP with all files (ready for distribution), or
-- Create a short GIF demonstrating the exact steps and commit it to the repo, or
-- Add a printable one‑page PDF quick sheet to the repo.
+## Permissions & privacy
+- The snippets only read text from the page you run them on and copy it to your clipboard. They do not send data to external servers.
+- Do not run these scripts on pages you are not authorized to extract data from.
 
-Reply which of those you want next.
+## Need help or want a PDF/GIF?
+- If you want a one‑page PDF or a GIF demo added to the repo, reply here and I’ll add them.
+
+---
+
+Refer colleagues to this README and the snippet files in this repo. If you want this exact README tweaked (tone, company wording, contact info), tell me what to change and I’ll update it.
