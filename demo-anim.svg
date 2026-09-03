@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="200" viewBox="0 0 960 200">
+  <style>
+    .bg{fill:#f4f6f8}
+    .panel{fill:#fff;stroke:#e2e8f0}
+    .title{font:600 16px/1.2 Arial, Helvetica, sans-serif; fill:#0f172a}
+    .step{font:14px/1.2 Arial, Helvetica, sans-serif; fill:#0b1220}
+    .sub{font:12px/1.2 Arial, Helvetica, sans-serif; fill:#334155}
+    .cursor{fill:#0f62fe}
+  </style>
+
+  <rect class="bg" x="0" y="0" width="960" height="200" rx="0" />
+  <g transform="translate(18,18)">
+    <rect class="panel" x="0" y="0" width="924" height="164" rx="8"/>
+    <text class="title" x="14" y="28">SFMC Snippets — Demo (animated)</text>
+
+    <!-- Step boxes -->
+    <g transform="translate(18,44)">
+      <rect x="0" y="0" width="260" height="96" rx="6" fill="#f8fafc" stroke="#e6eef6"/>
+      <text class="step" x="12" y="22">1. Open DevTools</text>
+      <text class="sub" x="12" y="42">Press F12 (Chrome)</text>
+
+      <rect x="312" y="0" width="260" height="96" rx="6" fill="#f8fafc" stroke="#e6eef6"/>
+      <text class="step" x="324" y="22">2. Create Snippet</text>
+      <text class="sub" x="324" y="42">Sources → Snippets → New</text>
+
+      <rect x="624" y="0" width="260" height="96" rx="6" fill="#f8fafc" stroke="#e6eef6"/>
+      <text class="step" x="636" y="22">3. Run & Copy</text>
+      <text class="sub" x="636" y="42">Right-click → Run (clipboard)</text>
+    </g>
+
+    <!-- Animated cursor moving across steps -->
+    <g transform="translate(40,132)">
+      <rect x="0" y="0" width="84" height="28" rx="6" fill="#fff" stroke="#e6eef6"/>
+      <text x="8" y="18" font-family="Arial" font-size="12" fill="#0f172a">demo: run ver1</text>
+    </g>
+
+    <!-- Cursor circle that animates across -->
+    <g>
+      <circle class="cursor" cx="48" cy="132" r="8">
+        <animate attributeName="cx" from="48" to="816" dur="3s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.88;1" dur="3s" repeatCount="indefinite" />
+      </circle>
+    </g>
+
+    <!-- Footer text -->
+    <text class="sub" x="14" y="150">Tip: After running the snippet, open Google Sheets and paste into cell A1.</text>
+  </g>
+</svg>

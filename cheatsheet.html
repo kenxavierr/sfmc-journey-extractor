@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SFMC Snippets — Printable Cheat Sheet</title>
+  <meta name="viewport" content="width=800" />
+  <style>
+    /* Print-friendly one-page layout */
+    @page { margin: 18mm; }
+    body { font-family: Arial, Helvetica, sans-serif; color: #111; margin: 0; padding: 18mm; }
+    header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px }
+    h1 { font-size:18px; margin:0 }
+    .meta { font-size:12px; color:#444 }
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:10px }
+    .card { border:1px solid #e3e8ef; padding:10px; border-radius:6px; background:#fff }
+    .card h3 { margin:0 0 6px 0; font-size:13px }
+    ol, ul { margin:6px 0 6px 18px; font-size:13px }
+    code { background:#f3f6fb; padding:2px 4px; border-radius:3px; font-size:12px }
+    footer { margin-top:12px; font-size:12px; color:#444 }
+    .links { font-size:12px }
+    .small { font-size:11px; color:#555 }
+    /* make it fit one page when printed */
+    @media print {
+      body { padding:6mm }
+      .grid { grid-template-columns: 1fr 1fr }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>SFMC Snippets — Quick Cheat Sheet</h1>
+      <div class="meta">Run DevTools Snippets → copy to clipboard → paste into Google Sheets</div>
+    </div>
+    <div class="small">Repo: github.com/kenxavierr/sfmc-journey-extractor</div>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <h3>Which script to use</h3>
+      <ul>
+        <li><b>ver1</b> — Extract Journey Analytics (Email Delivery & Engagement)</li>
+        <li><b>ver2</b> — Extract Email Analytics (title, contexts, iframe)</li>
+        <li><b>ver2-sms</b> — Extract SMS/MMS Analytics (KPIs + table rows)</li>
+        <li><b>ver3</b> — Extract Activity Names (one-per-line)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Quick run steps</h3>
+      <ol>
+        <li>Open the SFMC page in Chrome and wait until the card is visible.</li>
+        <li>Press <code>F12</code> to open DevTools.</li>
+        <li>Sources → Snippets → New snippet → paste the chosen <code>.js</code> file.</li>
+        <li>Save (Ctrl/Cmd+S) → Right-click snippet → <b>Run</b>.</li>
+        <li>Alert confirms copy. Paste into Google Sheets (cell A1).</li>
+      </ol>
+      <div class="small">If the content is inside an iframe: use the Console context selector (top-left) or open the iframe src in a new tab.</div>
+    </div>
+
+    <div class="card">
+      <h3>Paste into Google Sheets</h3>
+      <ol>
+        <li>Open a blank sheet and select cell A1.</li>
+        <li>Paste (Ctrl/Cmd+V). Tabs will split into columns automatically.</li>
+        <li>If everything lands in one column: Data → Split text to columns → Separator: Tab.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>Quick troubleshooting</h3>
+      <ul>
+        <li><b>No analytics card found</b>: wait 2s and re-run; switch to iframe context.</li>
+        <li><b>Copy fails</b>: open DevTools Console and copy logged TSV manually.</li>
+        <li><b>Need full files?</b> Download snippets from the repo and add as Snippets.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="margin-top:10px">
+    <div class="card">
+      <h3>Quick links (open in browser)</h3>
+      <div class="links">
+        Snippets: <br>
+        <a href="https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver1-extract-journey.js">ver1-extract-journey.js</a><br>
+        <a href="https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver2-extract-email.js">ver2-extract-email.js</a><br>
+        <a href="https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver2-sms-extract-sms.js">ver2-sms-extract-sms.js</a><br>
+        <a href="https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver3-extract-activity-names.js">ver3-extract-activity-names.js</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="small">Generated helper: open the demo page (<code>demo.html</code>) to preview the flow. To print: File → Print → Destination: Save as PDF.</div>
+  </footer>
+</body>
+</html>
