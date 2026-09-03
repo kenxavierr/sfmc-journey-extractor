@@ -42,6 +42,26 @@ Run a small JavaScript snippet inside Chrome DevTools to copy analytics text to 
 - Option A (recommended): In DevTools **Console**, use the context selector (top-left) to pick the iframe frame, then run the snippet there.
 - Option B: Inspect the iframe, copy its `src`, open that URL in a new tab, and run the snippet in that tab.
 
+## How to view and copy a script from this GitHub repo
+If you need to copy a script from GitHub to paste into DevTools, follow these steps:
+
+1. Open the script page on GitHub (example):
+   - ver1: https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver1-extract-journey.js
+   - ver2: https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver2-extract-email.js
+   - ver2-sms: https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver2-sms-extract-sms.js
+   - ver3: https://github.com/kenxavierr/sfmc-journey-extractor/blob/main/ver3-extract-activity-names.js
+
+2. On the file page you can copy the code in one of these ways:
+   - Click the **Raw** button (near the top-right). When the raw file opens, press `Ctrl/Cmd+A` then `Ctrl/Cmd+C` to copy all text.
+   - Or, on the file view, click the triple-dot menu ("…") or the small clipboard icon (if visible) and choose **Copy**. GitHub often shows a copy icon in the top-right of the code area.
+   - If you prefer keyboard only: click within the code area, press `Ctrl/Cmd+A` then `Ctrl/Cmd+C`.
+
+3. In Chrome DevTools: create a new Snippet (Sources → Snippets → New snippet), click inside the editor, and paste (`Ctrl/Cmd+V`). Save and run the snippet.
+
+Notes
+- If GitHub’s UI changes, the Raw button is a reliable fallback: open Raw → select all → copy.
+- If you have a slow network, prefer opening the Raw view — it loads the bare file faster.
+
 ## What the scripts copy (how to paste)
 - **ver1**: Two-row TSV — paste into Sheets A1; columns align automatically.
 - **ver2**: Key/value TSV — paste into Sheets or a text editor.
